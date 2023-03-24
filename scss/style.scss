@@ -1,0 +1,592 @@
+// 必ず入れる
+/*
+Theme Name: manmaru nursery school
+Theme URI: テーマのURL
+Author:作者名/会社名
+Author URI: 作者/会社のURL
+Description: テーマの説明
+Version: テーマのバージョン
+*/
+@charset "utf-8";
+
+@use "normalize";
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background-color: #f9f9f9;
+  color: #4d361f;
+}
+
+// ヘッダーのこと
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  h1 {
+    margin: 0;
+    padding: 10px;
+  }
+
+  a {
+    color: #4d361f;
+    text-decoration: none;
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+}
+
+// モバイル用ナビゲーション
+.navbtn {
+  // ボタンのこと
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  width: 60px;
+  height: 50px;
+  padding: 5px 0;
+
+  // 三本線のこと
+  span {
+    display: block;
+    margin: 10px;
+    border-bottom: 4px solid #4d361f;
+    border-radius: 4px; /* 線の丸み */
+  }
+
+  // 1本目の線の動きのこと
+  .trigger:nth-child(1) {
+    transform: translateY(15px) rotate(-45deg);
+  }
+
+  // 2本目の線の動きのこと
+  .trigger:nth-child(2) {
+    opacity: 0;
+  }
+
+  // 3本目の線の動きのこと
+  .trigger:nth-child(3) {
+    transform: translateY(-13px) rotate(45deg);
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// ナビゲーション
+.nav-menu {
+  display: none;
+  position: absolute; /* 三本線クリック後のこと？ */
+  top: 80px;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  background-color: rgba(255, 255, 255, 0.7); /* クリック後に出るメニュー文字の背景 */
+
+  // メニューの一覧のこと
+  li {
+    list-style: none;
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #4d361f;
+    font-weight: bold;
+    &:hover {
+      color: #805840;
+    }
+  }
+  
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: none;
+  }
+}
+
+main {
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+}
+
+.news-blog-container, .about-container, .life-container {
+  padding: 50px 4% 0;
+}
+
+// メインの写真
+.main-visual-container {
+
+  .main-visual {
+    img {
+      margin: 0 auto;
+      // border-radius: 150% 120% 150% 120%;
+      width: 100%;
+    }
+  }
+}
+
+// お知らせとブログの箱
+.news-blog-container {
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .news-container, .blog-container {
+    h2 {
+      text-align: center;
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4d361f;
+    }
+  }
+
+  .news-content, .blog-content {
+    margin: 0;
+    padding: 0 0 0 20px;
+    border-left: 3px solid brown;
+  }
+
+  .content-btn {
+    padding: 30px 0 20px;
+    text-align: right;
+  }
+}
+
+
+// 間の写真のこと
+.line {
+  margin: 0 auto;
+  width: 150px;
+  img {
+    width: 100%;
+    padding: 80px 0 30px;
+  }
+}
+
+// こんな保育園です！の箱
+.about-container {
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .content-btn {
+    padding: 20px 0;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: #4d361f;
+    }
+  }
+}
+
+// 保育園での生活の箱
+.life-container {
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .content-btn {
+    padding: 20px 0;
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: #4d361f;
+    }
+  }
+
+  .life-box {
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;  
+    }
+
+    .life-item {
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+      width: calc(100%/4);
+      padding: 5px;
+      box-sizing: border-box;
+      }
+
+      // 写真のこと
+      .life-img {
+      width: 100%;
+      border-radius: 20px;
+      }
+
+      // 文字のこと
+      p {
+        text-align: center;
+        margin: 0;
+        padding: 5px 0 10px;
+      }
+    }
+  }
+}
+
+// 給食について
+.shokuji-container {
+  padding: 50px 4% 0;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0px 0 20px;
+  }
+
+  .shokuji {
+    background-color: beige;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px 5px;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+}
+
+// 入園案内について
+.guide-container {
+  padding: 50px 4% 0;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0 0 20px;
+  }
+
+  .guide-title {
+    background-color: bisque;
+    border-radius: 30px 30px 0 0;
+    padding: 20px 0;
+
+    h2 {
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  .guide {
+    background-color: beige;
+    border-radius: 0 0 30px 30px;
+
+    h3 {
+      margin: 0;
+      padding: 20px 0 10px;
+      text-align: center;
+    }
+
+    p {
+      margin: 0;
+      padding: 10px 0;;
+      text-align: center;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 20px 0;
+
+    li {
+      list-style: none;
+      padding: 10px 0;
+    }
+  }
+}
+
+// お知らせ、ブログの一覧ページ
+.oshirase-container {
+  padding: 50px 4% 0;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+  .oshirase-item {
+    width: 100%;
+    position: relative;
+
+    .oshirase-img {
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      position: absolute;
+      background-color: white;
+      margin: 0;
+      padding: 20px 40px;
+      bottom: 5px;
+      right: 0;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+
+    li {
+      list-style: none;
+      padding: 0 10px;
+    }
+
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+
+  .oshirase-box {
+    padding-top: 10px;
+    hr {
+      margin: 0;
+      padding: 0;
+      border: 1px dashed gray;
+      }
+
+    .oshirase {
+      text-align: center;
+      padding: 10px 0;
+
+      a {
+        text-decoration: none;
+  
+      }
+      p {
+        margin: 0;
+        padding: 5px 0 5px 15px;
+      }
+  
+      
+    }
+  }
+
+  .page-icon {
+    display: flex;
+    padding: 40px 0 20px;
+    justify-content: space-around;
+
+    @media (min-width: 768px) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .p1, p {
+      margin: 0;
+      padding: 15px;
+      border: 5px;
+    }
+
+    .p1 {
+      background-color: brown;
+      color: white;
+    }
+
+    p {
+      background-color: lightgrey;
+      color: #4d361f;
+    }
+  }
+}
+
+// お知らせ、園の様子の記事ページ
+.oshirasepage-container {
+  padding: 50px 10% 0;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 10%;
+    }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .oshirase {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 28px;
+    }
+
+    time, .category-name {
+      font-size: 12px;
+    }
+  }
+
+  .oshirasepage-content {
+    padding: 20px 0 20px;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+
+  .oshirasepage-item {
+    padding: 10px 0;
+
+    // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;  
+    }
+
+    .oshirasepage-img {
+      img {
+        width: 100%;
+      }
+
+      // 768px以上の画面のとき
+      @media (min-width: 768px) {
+      width: calc(100%/3);
+      padding: 5px;
+      box-sizing: border-box;
+      }
+    }
+  }
+}
+
+// 固定ページ
+.recruit-container {
+  padding: 50px 10% 0;
+  background-color: #fffafa;
+
+  // 768px以上の画面のとき
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 10%;
+    }
+
+  hr {
+      margin: 10px 0;
+      padding: 0;
+      border: 1px dashed gray;
+  }
+
+  .recruit {
+    margin: 0;
+    h1 {
+      margin: 0;
+      padding: 20px 0 10px;
+      font-size: 28px;
+    }
+
+    time, .new {
+      font-size: 12px;
+    }
+  }
+
+  .recruitpage-content {
+    padding: 20px 0 20px;
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+.content-btn {
+  padding: 30px 0;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+// フッター
+.footer-container {
+  padding: 30px 0 30px;
+
+  .map {
+    iframe {
+      width: 100%;
+    }
+  }
+
+  .address {
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      padding: 20px 0 15px;
+    }
+
+    p {
+      margin: 0;
+      padding: 0 0 5px;
+    }
+  }
+
+  // 768px以上の画面のとき
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+
+    .map {
+      iframe {
+        width: 600px;
+      }
+    }
+  }
+}
